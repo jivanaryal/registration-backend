@@ -29,5 +29,4 @@ const StudentSchema = mongoose.Schema({
 });
 autoIncrement.initialize(mongoose.connection);
 StudentSchema.plugin(autoIncrement.plugin, "Student");
-
 module.exports = mongoose.model("Student", StudentSchema);
