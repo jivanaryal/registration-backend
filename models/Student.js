@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const autoIncrement = require("mongoose-auto-increment");
 
 const StudentSchema = mongoose.Schema({
   name: {
@@ -27,6 +26,5 @@ const StudentSchema = mongoose.Schema({
     required: [true, "must provide email"],
   },
 });
-autoIncrement.initialize(mongoose.connection);
-StudentSchema.plugin(autoIncrement.plugin, "Student");
+
 module.exports = mongoose.model("Student", StudentSchema);
