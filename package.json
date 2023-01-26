@@ -13,10 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "bcrypt": "^5.1.0",
     "nodemon": "^2.0.20"
   },
   "dependencies": {
-    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cookie": "^0.5.0",
     "cookie-parser": "^1.4.6",
