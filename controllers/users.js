@@ -30,13 +30,12 @@ const handleError = (err) => {
 };
 const loginUser = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { email, password } = req.body;
     const user = await Users.login(email, password);
-    console.log(user._id);
-
     const token = createJwtToken(user._id);
     res.cookie("jwt", token, {
-      withCredentials: true,
+      withCrdentials: true,
       httpOnly: false,
       maxAge: maxAge * 1000,
     });
