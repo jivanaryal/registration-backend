@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use("/api/v1/student", student);
 app.use("/api/v1/user", users);
+app.use("/api/v1/student", student);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 5000;
