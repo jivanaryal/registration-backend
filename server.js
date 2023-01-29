@@ -13,7 +13,7 @@ const app = express();
 dotenv.config();
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://rm-system.netlify.app",
   credentials: true,
 };
 app.use(cors(corsOptions));
