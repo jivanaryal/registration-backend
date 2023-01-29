@@ -8,6 +8,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "node": "node server"
+   
   },
   "keywords": [],
   "author": "",
