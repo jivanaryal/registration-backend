@@ -1,9 +1,10 @@
 const Users = require("../models/Users");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const maxAge = 3 * 24 * 60 * 60;
 const createJwtToken = (id) => {
-  return jwt.sign({ id }, "jivan aryal is introvert", {
+  return jwt.sign({ id }, process.env.Token, {
     expiresIn: maxAge,
   });
 };
@@ -53,9 +54,7 @@ const registerUser = async (req, res, next) => {
     const user = await Users.create({ email, password });
     const token = createJwtToken(user._id);
     res.cookie("jwt", token, {
-      withCrdentials: true,
       httpOnly: false,
-      maxAge: maxAge * 1000,
     });
     return res.status(201).json({ user: user._id, created: true });
   } catch (error) {
