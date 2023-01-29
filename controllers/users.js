@@ -54,6 +54,7 @@ const registerUser = async (req, res, next) => {
     const user = await Users.create({ email, password });
     const token = createJwtToken(user._id);
     res.cookie("jwt", token, {
+      withCredentials: true,
       httpOnly: false,
     });
     return res.status(201).json({ user: user._id, created: true });
