@@ -12,11 +12,11 @@ const users = require("./routes/users");
 const app = express();
 dotenv.config();
 
-const corsOptions = {
-  origin: "https://rm-system.netlify.app",
-  credentials: true,
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "http://localhost:5",
+//   credentials: true,
+// };
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -26,6 +26,11 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/user", users);
 app.use("/api/v1/student", student);
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "working",
+  });
+});
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 5000;
